@@ -64,8 +64,8 @@ defmodule SecureHeaders.StrictTrasportSecurity do
 
   defp make_string(sts_config) do
     max_age = append_max_age(sts_config[:max_age])
-    if max_age && Regex.match?(~r/^max-age=\d+$/,max_age) do 
-      result = append_max_age(max_age)
+    result = if max_age && Regex.match?(~r/^max-age=\d+$/,max_age) do 
+      append_max_age(max_age)
     end
     if Keyword.get(sts_config, :includesubdomains), do: result = result <> "; includeSubdomains"
     if Keyword.get(sts_config, :preload), do: result = result <> "; preload"

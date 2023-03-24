@@ -25,7 +25,6 @@ defmodule SecureHeaders do
       options
       |> SecureHeaders.SecureHeaders.validate
       |> SecureHeaders.ContentSecurityPolicy.validate
-      |> SecureHeaders.HttpPublicKeyPins.validate
       |> SecureHeaders.StrictTrasportSecurity.validate
       |> SecureHeaders.XContentTypeOptions.validate
       |> SecureHeaders.XDownloadOptions.validate
